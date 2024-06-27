@@ -14,8 +14,8 @@
 @*@inject IStateObserver<Account> Account;*@
 @attribute [AutoState]
 @code {
-	[Inject] protected IStateObserver<CompanyInfo> CompanyInfo { get; set; } = null!;
-	[Inject] protected IStateObserver<Account> Account { get; set; } = null!;
+	[Inject] protected IStateObserver<CompanyInfo> CompanyInfo { get; set; } = null!; // not nullable
+	[Inject] protected IStateObserver<Account?> Account { get; set; } = null!;
 
 	protected new void StateHasChanged()
 	{

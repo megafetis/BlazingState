@@ -4,17 +4,31 @@
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p role="status">Current count: @_localState.Value</p>
 
+<button class="btn btn-primary" @onclick="IncrementCountNotAutoState">Click me async afrer 1500ms</button>
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 <ManageCompanyInfo />
 
 @code {
-    private int currentCount = 0;
+
+
+    private IStateObserver<int> _localState = new StateObserver<int>(0);
+
+    protected override void OnInitialized()
+    {
+        _localState.Register(this, StateHasChanged);
+    }
+
+    private async void IncrementCountNotAutoState()
+    {
+        await Task.Delay(1500);
+        _localState.SetValue(_localState.Value + 1);
+    }
 
     private void IncrementCount()
     {
-        currentCount++;
+        _localState.SetValue(_localState.Value + 1,this);
     }
 }

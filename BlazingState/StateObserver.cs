@@ -16,9 +16,9 @@ namespace BlazingState
         private readonly EqualityComparer<T> equalityComparer;
         private readonly IAutoStateManager? autoStateManager;
 
-        private T? currentValue;
+        private T currentValue = default!;
 
-        public T? Value
+        public T Value
         {
             get => currentValue;
             set
@@ -55,7 +55,7 @@ namespace BlazingState
             await NotifyStateChangedAsync(instance);
         }
 
-        private bool SetValueInternal(T? newValue)
+        private bool SetValueInternal(T newValue)
         {
             if (!equalityComparer.Equals(currentValue, Value))
                 return false;
@@ -64,13 +64,13 @@ namespace BlazingState
             return true;
         }
 
-        public void SetValue(T? newValue, object? instance = null)
+        public void SetValue(T newValue, object? instance = null)
         {
             if (SetValueInternal(newValue))
                 NotifyStateChangedInternalAsync(instance);
         }
 
-        public Task SetValueAsync(T? newValue, object? instance = null)
+        public Task SetValueAsync(T newValue, object? instance = null)
         {
             if (SetValueInternal(newValue))
                 return NotifyStateChangedAsync(instance);
