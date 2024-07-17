@@ -14,7 +14,7 @@ namespace BlazingState
         /// Sets/gets the value of this observer.
         /// Doesn't wait for all components to finish rerendering.
         /// </summary>
-        public T? Value { get; set; }
+        public T Value { get; set; }
 
         /// <summary>
         /// Sets the value of this observer with optionally specifying from which instance the change came.
@@ -22,7 +22,7 @@ namespace BlazingState
         /// </summary>
         /// <param name="newValue"></param>
         /// <param name="instance"></param>
-        public void SetValue(T? newValue, object? instance = null);
+        public void SetValue(T newValue, object? instance = null);
 
         /// <summary>
         /// Sets the value of this observer with optionally specifying from which instance the change came.
@@ -31,7 +31,7 @@ namespace BlazingState
         /// <param name="newValue"></param>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public Task SetValueAsync(T? newValue, object? instance = null);
+        public Task SetValueAsync(T newValue, object? instance = null);
 
         /// <summary>
         /// Notifies all components that the state changed.

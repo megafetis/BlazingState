@@ -4,7 +4,7 @@
 
 <h1>AutoStateDemoSpecific</h1>
 
-<p>Company Name: @CompanyInfo.Value?.Name</p>
+<p>Company Name: @CompanyInfo.Value.Name</p>
 <ManageCompanyInfo />
 
 <hr />
@@ -14,8 +14,8 @@
 @attribute [AutoState(typeof(CompanyInfo))]
 @code {
 	// AutoState is only managed for this StateObserver
-	[Inject] protected IStateObserver<CompanyInfo> CompanyInfo { get; set; } = null!;
-	[Inject] protected IStateObserver<Account> Account { get; set; } = null!;
+	[Inject] protected IStateObserver<CompanyInfo> CompanyInfo { get; set; } = null!; // Not nullable state
+	[Inject] protected IStateObserver<Account?> Account { get; set; } = null!;
 
 	protected override void OnParametersSet()
 	{

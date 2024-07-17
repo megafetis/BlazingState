@@ -41,7 +41,7 @@ public class MyData
 // Register BlazingState
 builder.Services.AddBlazingState()
     // Registers a state observer of this type with no initial value
-    .AddStateObserver<MyData>();
+    .AddStateObserver<MyData?>();
     // You can also initialize MyData with an initial value
     .AddStateObserver<MyData>(new MyData());
     // And even with an implementation factory

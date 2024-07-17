@@ -14,7 +14,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddBlazingState()
     .AddAutoState()
     .AddStateObserver<CompanyInfo>(new CompanyInfo { Name = "InitialName" })
-    .AddStateObserver<Account>();
+    .AddStateObserver<Account?>();
 
 
 // Build
