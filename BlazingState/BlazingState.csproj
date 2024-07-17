@@ -16,7 +16,7 @@
     <SignAssembly>False</SignAssembly>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/TheDusty01/BlazingState</RepositoryUrl>
-    <Version>7.0.0</Version>
+    <Version>7.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
